@@ -6,6 +6,22 @@
 body{
     background: linear-gradient(to right, #ff8ef0, #ffcb64);
 }
+
+input{
+    display: none;
+}
+input:checked~div {
+    display: flex;
+}
+
+input:checked~.bayan__item-content {
+    display: flex;
+    justify-content: center;
+} 
+    
+
+
+/* заголовок */
 .header__title{
     color:white;
     text-align: center;
@@ -14,11 +30,14 @@ body{
     margin-top: 1em;
 }
 
+/* стилизация аккордеона */
 .bayan{
     padding-top: 20px;
     display: flex;
     flex-direction: column;
 }
+/* стилизация элементов аккордеона */
+
 .bayan__item{
     display: flex;
     flex-direction: column;
@@ -26,16 +45,29 @@ body{
     padding-bottom: 20px;
     border-top: 0.5vw solid #ffcb64;
 }
-.bayan__item_element{
-
+.bayan__item-element{
+    font-size: 2vw;
+    display: none;
 }
-.bayan__item-title h3{
+
+.bayan:hover .bayan__item-element{
+    display: block;
+}
+
+/* Заголовок элемента */
+.bayan__item-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bayan__item-title h2{
     font-size: 2vw;
     color: white;
 }
 .bayan__item-content{
     padding-top: 10px;
     padding-bottom: 10px;
+
 }
 .bayan__item-content img{
     width: 60%;
@@ -45,13 +77,16 @@ body{
     color: saddlebrown;
     transition: 0.5s all;
 }
+
+/*  Контент элемента  */
 .bayan__item-content{
     display: none;
     transition: 2s all;
 }
 .bayan__item:hover .bayan__item-content{
     transition: 2s all;
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 @media(min-width:320px){
@@ -77,5 +112,7 @@ body{
         
     }
 }
+
+
 
 
