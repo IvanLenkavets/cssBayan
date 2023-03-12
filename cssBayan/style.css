@@ -1,0 +1,81 @@
+
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+body{
+    background: linear-gradient(to right, #ff8ef0, #ffcb64);
+}
+.header__title{
+    color:white;
+    text-align: center;
+    font-size: 2.5vw;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.bayan{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.bayan__item{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 0.5vw solid #ffcb64;
+}
+.bayan__item_element{
+
+}
+.bayan__item-title h3{
+    font-size: 2vw;
+    color: white;
+}
+.bayan__item-content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bayan__item-content img{
+    width: 60%;
+}
+
+.bayan:hover .bayan__item-title{
+    color: saddlebrown;
+    transition: 0.5s all;
+}
+.bayan__item-content{
+    display: none;
+    transition: 2s all;
+}
+.bayan__item:hover .bayan__item-content{
+    transition: 2s all;
+    display: block;
+}
+
+@media(min-width:320px){
+    .wrapper{
+        margin: 0 auto;
+        max-width: 320px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media(min-width:820px){
+    .wrapper{
+        max-width: 820px;
+    }
+}
+
+@media(min-width:1920px){
+    .wrapper{
+        max-width: 1920px;
+        padding-left: 50px;
+        padding-right: 50px;
+        
+    }
+}
+
+
