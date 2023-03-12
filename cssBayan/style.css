@@ -4,56 +4,40 @@
 
 }
 body{
+    width: 100%;
+    min-width: 100%;
     background: linear-gradient(to right, #ff8ef0, #ffcb64);
 }
-
-input{
-    display: none;
-}
-input:checked~div {
-    display: flex;
-}
-
-input:checked~.bayan__item-content {
-    display: flex;
-    justify-content: center;
-} 
-    
-
-
 /* заголовок */
 .header__title{
     color:white;
     text-align: center;
-    font-size: 2.5vw;
+    font-size: 2em;
     margin-bottom: 1em;
     margin-top: 1em;
 }
-
 /* стилизация аккордеона */
 .bayan{
-    padding-top: 20px;
+    padding-top: 1em;
     display: flex;
     flex-direction: column;
 }
 /* стилизация элементов аккордеона */
-
 .bayan__item{
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1em;
+    padding-bottom: 1em;
     border-top: 0.5vw solid #ffcb64;
+    cursor: pointer;
+    animation: slow 6s forwards;
 }
 .bayan__item-element{
-    font-size: 2vw;
     display: none;
+    width: 1em;
+    height: 1em;
+    transform: translate(1s all);
 }
-
-.bayan:hover .bayan__item-element{
-    display: block;
-}
-
 /* Заголовок элемента */
 .bayan__item-title{
     display: flex;
@@ -61,58 +45,120 @@ input:checked~.bayan__item-content {
     align-items: center;
 }
 .bayan__item-title h2{
-    font-size: 2vw;
+    font-size: 1.5em;
     color: white;
 }
+/* Контент аккордиона */
 .bayan__item-content{
     padding-top: 10px;
     padding-bottom: 10px;
-
+    opacity: 0;
+    animation: slow 2.5s forwards;
+}
+.bayan__item-content img{
+    transition: 1s all;
 }
 .bayan__item-content img{
     width: 60%;
 }
-
-.bayan:hover .bayan__item-title{
-    color: saddlebrown;
-    transition: 0.5s all;
-}
-
 /*  Контент элемента  */
 .bayan__item-content{
     display: none;
-    transition: 2s all;
+    transition: 1s all;
 }
-.bayan__item:hover .bayan__item-content{
-    transition: 2s all;
+/* что происходит при нажатии */
+input{
+    display: none;
+}
+input:checked~div {
     display: flex;
-    justify-content: center;
+    transition: 0.5s all;
 }
 
+input:checked~.bayan__item-content {
+    display: flex;
+    justify-content: center;
+} 
+input:checked~.bayan__item-element img{
+    display: block !important;
+    transform: rotateZ(0deg);
+ }
+ 
+ input:checked~.bayan__item-title h2{
+    color: saddlebrown !important;
+ }
 @media(min-width:320px){
     .wrapper{
         margin: 0 auto;
-        max-width: 320px;
-        padding-left: 20px;
-        padding-right: 20px;
+        width: 80%;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .bayan:hover .bayan__item-title{
+        color: white;
+    }
+    .bayan__item-content img{
+        width: 80%;
+    }
+    .bayan:hover .bayan__item-title h2{
+        color: white;
+    }
+    .bayan__item-element{
+        display: block;
+        transition: 0.5s all;
     }
 }
-
 @media(min-width:820px){
     .wrapper{
-        max-width: 820px;
+        width: 780px;
+        max-width: 780px;
+        width: 60%;
+    }
+    .bayan__item-content img{
+        max-width: 50%;
+        width: 50%;
+    }
+    .bayan__item-element{
+        display: none;
+    }
+    .bayan__item{
+        cursor: pointer;
+    }
+    .header__title{
+        font-size: 2.2em;
+    }
+    .bayan:hover .bayan__item-element{
+        transform: rotateZ(225deg);
+        display: block;  
+    }
+    .bayan__item:hover .bayan__item-element{
+        transform: rotateZ(0deg);
+    }
+    .bayan__item:hover .bayan__item-content{
+        display: flex;
+        justify-content: center;
+    }
+    .bayan:hover .bayan__item-title h2{
+        color: saddlebrown;
+    }
+    .bayan__item-content img:hover{
+        transform: scaleX(1.02);
     }
 }
-
 @media(min-width:1920px){
     .wrapper{
         max-width: 1920px;
         padding-left: 50px;
         padding-right: 50px;
-        
+    }
+    .bayan__item-content img{
+        width: 50%;
     }
 }
-
+@keyframes slow {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
 
 
 
